@@ -1,0 +1,18 @@
+/* === RESET CSS === */
+/* Elimina márgenes y rellenos por defecto del navegador
+   y asegura que el tamaño incluya bordes y padding */
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Imágenes responsive por defecto */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
