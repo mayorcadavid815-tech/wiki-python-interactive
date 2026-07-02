@@ -1,0 +1,71 @@
+/* === TEMA Y VARIABLES CSS === */
+/* Inspirado en la paleta de la Viquipèdia */
+
+:root {
+  /* Colores principales */
+  --color-primary:       #0645ad;    /* Azul de enlaces */
+  --color-primary-hover: #0b0080;    /* Azul oscuro al pasar el ratón */
+  --color-text:          #202122;    /* Color principal del texto */
+  --color-text-secondary:#54595d;    /* Texto secundario (pies de foto, etc.) */
+  --color-border:        #a2a9b1;    /* Bordes y separadores */
+  
+  /* Fondos */
+  --color-bg-body:       #ffffff;    /* Fondo general */
+  --color-bg-light:      #f8f9fa;    /* Fondo claro (botones, celdas) */
+  --color-bg-header-cell: #eaecf0;   /* Fondo cabeceras de tabla */
+  --color-bg-code:       #f1f1f1;    /* Fondo para etiquetas <code> */
+  
+  /* Tipografía */
+  --font-sans:           'Helvetica Neue', Helvetica, Arial, sans-serif;
+  --font-mono:           'Courier New', Courier, monospace;
+  --font-size-base:      16px;
+  --font-size-sm:        14px;
+  --font-size-xs:        13px;
+  --font-size-lg:        32px;       /* Títulos principales */
+  
+  /* Espaciado y dimensiones */
+  --header-height:       56px;
+  --content-max-width:   900px;
+  --container-max-width: 1200px;
+  --infobox-width:       260px;
+  --menu-width:          260px;
+  
+  /* Sombras y redondeos */
+  --shadow-card:         2px 2px 10px rgba(0, 0, 0, 0.1);
+  --radius-sm:           1px;
+  --radius-md:           2px;
+}
+
+/* === ESTILOS BASE === */
+body {
+  font-family: var(--font-sans);
+  font-size: var(--font-size-base);
+  background: var(--color-bg-body);
+  color: var(--color-text);
+  line-height: 1.6;
+}
+
+/* === ENLACES === */
+a {
+  text-decoration: none;
+  color: var(--color-primary);
+}
+
+a:hover {
+  text-decoration: underline;
+  color: var(--color-primary-hover);
+}
+
+a:visited {
+  color: #663366; /* Púrpura típico de enlaces visitados en Wikipedia */
+}
+
+/* === CÓDIGO === */
+code {
+  background-color: var(--color-bg-code);
+  color: #000000;
+  padding: 2px 5px;
+  border-radius: var(--radius-sm);
+  font-family: var(--font-mono);
+  border: 1px solid #ccc;
+}
