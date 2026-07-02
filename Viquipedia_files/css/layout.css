@@ -1,0 +1,142 @@
+/* === LAYOUT Y ESTRUCTURA === */
+/* Contenedor general del header */
+.container {
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+/* Contenedor del contenido principal */
+.content {
+  max-width: var(--content-max-width);
+  margin: 24px auto;
+  padding: 0 16px;
+}
+
+/* === HEADER === */
+.header {
+  border-bottom: 1px solid var(--color-border);
+  background: var(--color-bg-body);
+}
+
+.header__bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: var(--header-height);
+}
+
+/* Bloque izquierdo del header */
+.header__left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* Logo */
+.header__logo img {
+  height: 32px;
+  width: auto;
+}
+
+/* === BUSCADOR === */
+.header__search {
+  flex: 1;
+  display: flex;
+  max-width: 500px;
+  margin: 0 24px;
+}
+
+.header__search-input {
+  flex: 1;
+  padding: 6px 8px;
+  border: 1px solid var(--color-border);
+  border-right: none;
+  font-size: var(--font-size-sm);
+}
+
+.header__search-button {
+  border: 1px solid var(--color-border);
+  background: var(--color-bg-light);
+  padding: 0 12px;
+  cursor: pointer;
+  font-size: var(--font-size-base);
+}
+
+/* Bloque derecho del header */
+.header__right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  font-size: var(--font-size-sm);
+}
+
+/* === LIMPIEZA DE FLOATS === */
+/* Evita que el contenedor colapse por la infobox flotante */
+.content::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* === TÍTULO PRINCIPAL Y SUBTÍTULOS === */
+.title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: var(--font-size-lg);
+  margin-bottom: 12px;
+  position: relative;
+}
+
+.content h2 {
+  border-bottom: 1px solid var(--color-border);
+  margin: 24px 0 12px;
+  padding-bottom: 4px;
+  clear: both;
+}
+
+.content h3 {
+  margin: 18px 0 8px;
+}
+
+.content h4 {
+  margin: 14px 0 6px;
+}
+
+/* Párrafos */
+.content p {
+  margin-bottom: 14px;
+  line-height: 1.6;
+}
+
+/* === DISEÑO RESPONSIVE BÁSICO === */
+@media (max-width: 768px) {
+  .header__bar {
+    flex-wrap: wrap;
+    height: auto;
+    padding: 8px 0;
+  }
+  
+  .header__search {
+    order: 3;
+    max-width: 100%;
+    margin: 8px 0;
+    width: 100%;
+  }
+  
+  .infobox {
+    float: none;
+    width: 100%;
+    margin: 0 0 16px 0;
+  }
+  
+  .content {
+    max-width: 100%;
+    padding: 0 12px;
+  }
+
+  .menu__toggle {
+    display: none !important;
+  }
+}
