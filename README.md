@@ -53,4 +53,4 @@ L'aplicació compta amb una interfície adaptativa (*responsive*) que inclou:
 
 1. **Clona el repositori:**
    ```bash
-   git clone [https://github.com/tu-usuario/nombre-del-repo.git](https://github.com/tu-usuario/wiki-python-interactive.git)
+   git clone [https://github.com/mayorcadavid815-tech/wiki-python-interactive.git](https://github.com/mayorcadavid815-tech/wiki-python-interactive.git)
