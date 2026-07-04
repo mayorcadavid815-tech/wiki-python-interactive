@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="ca">
+
+<head>
+  <!-- Metadades bàsiques: codificació de caràcters i configuració de la visualització en mòbils -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- Títol de la pàgina que es mostra a la pestanya del navegador -->
+  <title>Python - Viquipèdia</title>
+  
+  <!-- Favicons per a diferents dispositius i mides (per a la icona de la pàgina) -->
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="favicon/android-chrome-192x192.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="favicon/android-chrome-512x512.png">
+  <link rel="manifest" href="favicon/site.webmanifest">
+  <link rel="icon" href="favicon/favicon.ico" type="image/x-icon">
+  
+  <!-- Fulls d'estil CSS: reset per uniformitzar, tema, layout i components concrets -->
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/theme.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+</head>
+
+<body>
+
+  <!-- Capçalera principal de la pàgina: conté el menú, logotip, cerca i accions d'usuari -->
+  <header class="header">
+    <div class="container header__bar">
+
+      <!-- Part esquerra de la capçalera: menú desplegable i logotip -->
+      <div class="header__left">
+        <!-- Menú de navegació principal amb un checkbox per controlar la visibilitat en mòbils -->
+        <nav class="menu" aria-label="Menú principal">
+          <!-- Checkbox ocult que s'utilitza per obrir/tancar el menú desplegable (CSS amb :checked) -->
+          <input type="checkbox" id="menu-toggle" class="menu__checkbox" hidden>
+          <!-- Etiqueta que actua com a botó hamburguesa per a dispositius petits -->
+          <label for="menu-toggle" class="menu__toggle" aria-label="Obrir menú">☰</label>
+
+          <!-- Contenidor del menú desplegable: es mostra quan el checkbox està marcat -->
+          <div class="menu__dropdown">
+            <h3 class="menu__title">Menú principal</h3>
+            <!-- Llista d'enllaços de navegació principal de la Viquipèdia -->
+            <ul class="menu__list">
+              <li><a href="#">Portada</a></li>
+              <li><a href="#">Article a l'atzar</a></li>
+              <li><a href="#">Articles de qualitat</a></li>
+              <li><a href="#">Pàgines especials</a></li>
+              <li><a href="#">Comunitat</a></li>
+            </ul>
+            <hr class="menu__divider"> <!-- Separador visual entre grups d'enllaços -->
+            <ul class="menu__list">
+              <li><a href="#">Portal viquipedista</a></li>
+              <li><a href="#">Agenda d'actes</a></li>
+              <li><a href="#">Canvis recents</a></li>
+              <li><a href="#">La taverna</a></li>
+              <li><a href="#">Contacte</a></li>
+              <li><a href="#">Xat</a></li>
+              <li><a href="#">Ajuda</a></li>
+            </ul>
+          </div>
+        </nav>
+
+        <!-- Logotip de la Viquipèdia que enllaça a la portada -->
+        <a href="#" class="header__logo">
+          <img src="img/logo-viquipedia.png" alt="Viquipèdia">
+        </a>
+      </div>
+
+      <!-- Formulari de cerca: input i botó de cerca -->
+      <form class="header__search" role="search">
+        <input type="search" class="header__search-input" placeholder="Cerca a Viquipèdia" aria-label="Cercar">
+        <button type="button" class="header__search-button" aria-label="Buscar">🔍</button>
+      </form>
+
+      <!-- Enllaços d'usuari: donatius, crear compte i iniciar sessió -->
+      <nav class="header__right" aria-label="Accions d'usuari">
+        <a href="#">Donatius</a>
+        <a href="#">Crear un compte</a>
+        <a href="#">Iniciar sessió</a>
+      </nav>
+
+    </div>
+  </header>
+
+  <!-- Contingut principal de l'article -->
+  <main class="content">
+
+    <!-- Títol de l'article amb un índex de continguts desplegable -->
+    <h1 class="title">
+      <!-- Span que agrupa el checkbox i l'índex per permetre mostrar/amagar l'índex -->
+      <span class="index-wrapper">
+        <!-- Checkbox ocult per controlar la visibilitat de l'índex (CSS amb :checked) -->
+        <input type="checkbox" id="index-toggle" class="index__checkbox" style="display: none;">
+        <!-- Etiqueta que fa de botó per mostrar/amagar l'índex -->
+        <label for="index-toggle" class="index__toggle">☰</label>
+
+        <!-- Navegació de l'índex de continguts: llista jeràrquica amb enllaços interns -->
+        <nav class="index__box" aria-label="Índex de continguts">
+          <ul class="index__list">
+            <li><a href="#historia">Història</a></li>
+            <li>
+              <a href="#caracteristiques">Característiques i filosofia</a>
+              <ul>
+                <li><a href="#funcionalitats">Descripció de funcionalitats</a></li>
+                <li><a href="#paradigmes">Paradigmes</a></li>
+              </ul>
+            </li>
+            <li>
+              <a href="#sintaxi">Sintaxi i semàntica</a>
+              <ul>
+                <li><a href="#sagnat">Sagnat</a></li>
+                <li><a href="#instruccions">Instruccions</a></li>
+                <li><a href="#expressions">Expressions</a></li>
+                <li><a href="#classes">Classes</a></li>
+                <li><a href="#escriptura">Escriptura</a></li>
+              </ul>
+            </li>
+            <li>
+              <a href="#bibliotequesPython">Biblioteques en Python</a>
+              <ul>
+                <li><a href="#bibliotecaEstandard">Biblioteca estàndard</a></li>
+                <li>
+                  <a href="#gestio">Gestió de biblioteques</a>
+                  <ul>
+                    <li><a href="#pip">pip</a></li>
+                    <li><a href="#conda">conda</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+            <li><a href="#entorns">Entorns de desenvolupament</a></li>
+            <li>
+              <a href="#implementacions">Implementacions</a>
+              <ul>
+                <li><a href="#CPython">CPython</a></li>
+              </ul>
+            </li>
+            <li><a href="#desenvolupament">Desenvolupament</a></li>
+            <li><a href="#nom">Nom</a></li>
+            <li><a href="#generador">Generadors de documentació de l'API</a></li>
+            <li><a href="#usos">Usos</a></li>
+            <li><a href="#referencies">Referències</a></li>
+            <li><a href="#vegeu">Vegeu també</a></li>
+            <li><a href="#bibliografia">Bibliografia</a></li>
+            <li><a href="#enllacos">Enllaços externs</a></li>
+          </ul>
+        </nav>
+      </span>
+      Python
+    </h1>
+    <hr> <!-- Separador horitzontal sota el títol -->
+
+    <!-- Caixa d'informació lateral (infobox) amb dades tècniques del llenguatge Python -->
+    <aside class="infobox" aria-label="Fitxa tècnica">
+      <table class="infobox__table">
+        <thead>
+          <tr>
+            <!-- Títol de la taula que ocupa dues columnes -->
+            <th class="infobox__title" colspan="2">Python</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <!-- Cel·la que conté les imatges del logotip i codi d'exemple, ocupa dues columnes -->
+            <td class="infobox__images" colspan="2">
+              <img src="img/python-logo.svg" alt="Logotip de Python" width="100">
+              <img src="img/python-codigo-ejemplo.png" alt="Codi Python d'exemple en pantalla" width="250">
+            </td>
+          </tr>
+          <tr>
+            <!-- Etiqueta descriptiva (fila) i valor corresponent -->
+            <th scope="row" class="infobox__cell--label">Tipus</th>
+            <td class="infobox__cell">
+              <a href="https://www.wikidata.org/wiki/Q899523">llenguatge de programació orientat a objectes</a>,
+              <a href="https://ca.wikipedia.org/wiki/Llenguatge_de_programaci%C3%B3_din%C3%A0mic">llenguatge de programació dinàmic</a>,
+              ...
+              <a href="https://ca.wikipedia.org/wiki/Programari">programari</a>
+            </td>
+          </tr>
+          <tr>
+            <th scope="row" class="infobox__cell--label">Data de creació</th>
+            <td class="infobox__cell">20 febrer 1991</td>
+          </tr>
+          <tr>
+            <th scope="row" class="infobox__cell--label">Disseny</th>
+            <td class="infobox__cell"><a href="https://ca.wikipedia.org/wiki/Guido_van_Rossum">Guido van Rossum</a></td>
+          </tr>
+          <tr>
+            <th scope="row" class="infobox__cell--label">Desenvolupador</th>
+            <td class="infobox__cell">
+              <a href="https://ca.wikipedia.org/w/index.php?title=Python_Software_Foundation&redirect=no">Python Software Foundation</a> i
+              <a href="https://ca.wikipedia.org/wiki/Guido_van_Rossum">Guido van Rossum</a>
+            </td>
+          </tr>
+          <tr>
+            <th scope="row" class="infobox__cell--label">Epònim</th>
+            <td class="infobox__cell"><a href="https://ca.wikipedia.org/wiki/Monty_Python">Monty Python</a></td>
+          </tr>
+          <tr>
+            <th scope="row" class="infobox__cell--label">Paradigma de programació</th>
+            <td class="infobox__cell">
+              <a href="https://ca.wikipedia.org/wiki/Programaci%C3%B3_funcional">programació funcional</a>,
+              <a href="https://ca.wikipedia.org/wiki/Programaci%C3%B3_orientada_a_objectes">programació orientada a objectes</a>,
+              <a href="https://www.wikidata.org/wiki/Q98609791">dynamic programming</a> <sup>(en)</sup>,
+              <a href="https://ca.wikipedia.org/wiki/Programaci%C3%B3_imperativa">llenguatge imperatiu</a> i
+              <a href="https://www.wikidata.org/wiki/Q4306983">programació multiparadigma</a>
+            </td>
+          </tr>
+          <tr>
+            <th scope="row" class="infobox__cell--label">Darrera versió estable</th>
+            <td class="infobox__cell">3.15.0 alpha 2<br>3.14.2</td>
+          </tr>
+          <tr>
+            <th scope="row" class="infobox__cell--label">Tipus de dades</th>
+            <td class="infobox__cell">Forta, dinàmica</td>
+          </tr>
+          <tr>
+            <th scope="row" class="infobox__cell--label">Dialectes</th>
+            <td class="infobox__cell">
+              <a href="https://ca.wikipedia.org/wiki/Stackless_Python?action=edit&veswitched=1">Stackless Python</a>,
+              <a href="https://ca.wikipedia.org/w/index.php?title=RPython&action=edit&redlink=1">RPython</a>,
+              <a href="https://ca.wikipedia.org/wiki/Cython">Cython</a>
+            </td>
+          </tr>
+          <tr>
+            <th scope="row" class="infobox__cell--label">Llenguatge de programació</th>
+            <td class="infobox__cell"><strong>Python</strong> i <a href="https://ca.wikipedia.org/wiki/Llenguatge_C">C</a></td>
+          </tr>
+          <tr>
+            <th scope="row" class="infobox__cell--label">Influenciat per</th>
+            <td class="infobox__cell">
+              ...
+            </td>
+          </tr>
+          <tr>
+            <th scope="row" class="infobox__cell--label">Ha influenciat</th>
+            <td class="infobox__cell">
+              <a href="https://ca.wikipedia.org/wiki/Ruby">Ruby</a>,
+              <a href="https://ca.wikipedia.org/wiki/Boo">Boo</a>,
+              <a href="https://ca.wikipedia.org/wiki/Groovy">Groovy</a>
+            </td>
+          </tr>
+          <tr>
+            <th scope="row" class="infobox__cell--label">Sistema operatiu</th>
+            <td class="infobox__cell"><a href="https://ca.wikipedia.org/wiki/Multiplataforma">multiplataforma</a></td>
+          </tr>
+          <tr>
+            <th scope="row" class="infobox__cell--label">Llicència</th>
+            <td class="infobox__cell"><a href="https://ca.wikipedia.org/wiki/Python_Software_Foundation_License">Python Software Foundation License</a></td>
+          </tr>
+          <tr>
+            <th scope="row" class="infobox__cell--label">Pàgina web</th>
+            <td class="infobox__cell"><a href="https://www.python.org/">python.org</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </aside>
+
+    <!-- Paràgraf d'introducció de l'article amb enllaços i referències en superíndex -->
+    <p><strong>Python</strong> és un <a href="https://ca.wikipedia.org/wiki/Llenguatge_de_programaci%C3%B3_d%27alt_nivell">llenguatge de programació d'alt nivell</a> i propòsit general molt utilitzat.<a href="#ref1"><sup>[1]</sup></a><a href="#ref2"><sup>[2]</sup></a><a href="#ref3"><sup>[3]</sup></a>
+      Va ser creat per <a href="https://ca.wikipedia.org/wiki/Guido_van_Rossum">Guido van Rossum</a> l'any 1991. La seva filosofia de disseny cerca llegibilitat en el codi i la seva sintaxi permet als
+      <a href="https://ca.wikipedia.org/wiki/Programador">programadors</a> expressar <a href="https://ca.wikipedia.org/wiki/Concepte">conceptes</a>
+      en menys línies de codi del que seria possible en llenguatges com <a href="https://ca.wikipedia.org/wiki/Llenguatge_C">C</a>. També
+      proveeix estructures per permetre programes més entenedors tant a petita com a gran escala. [...]
+    </p>
+
+    <!-- Secció Història amb una figura (imatge + peu) -->
+    <h2 id="historia">Història</h2>
+    <figure class="figure-box">
+      <img class="figure-box__image" src="img/guido-van-rossum.jpg" alt="Retrat de Guido van Rossum, el creador de Python">
+      <figcaption class="figure-box__caption"><a href="https://ca.wikipedia.org/wiki/Guido_van_Rossum">Guido van Rossum</a>, el creador de Python</figcaption>
+    </figure>
+    
+    <p>
+      Python fou creat a la darreria dels anys 80 per <a href="https://ca.wikipedia.org/wiki/Guido_van_Rossum">Guido van Rossum</a> al
+      Centrum Wiskunde & Informatica (<a href="https://ca.wikipedia.org/w/index.php?title=CWI&action=edit&redlink=1">CWI</a>) als
+      <a href="https://ca.wikipedia.org/wiki/Pa%C3%AFsos_Baixos">Països Baixos</a>...
+    </p>
+
+    <h2 id="caracteristiques">Característiques i filosofia</h2>
+    
+    <h3 id="funcionalitats">Descripció de funcionalitats</h3>
+    <p>
+      Python és un llenguatge <a href="https://ca.wikipedia.org/wiki/Multiparadigma">multiparadigma</a>. Això significa...
+    </p>
+
+    <h3 id="paradigmes">Paradigmes</h3>
+    <p>
+      Python fou dissenyat per ser altament extensible, més que no pas tenir totes...
+    </p>
+
+    <h2 id="sintaxi">Sintaxi i semàntica</h2>
+    <p>
+      El Python està dissenyat per ser un llenguatge molt visual, i, com a característica principal i distintiva, utilitza
+      <a href="https://ca.wikipedia.org/wiki/Sagnat">sagnat</a>. [...]
+    </p>
+
+    <h3 id="sagnat">Sagnat</h3>
+    <p>
+      El sagnat és la característica més visible del Python. Al contrari que en altres llenguatges...
+    </p>
+
+    <h3 id="instruccions">Instruccions</h3>
+    <p>Alsunes de les instruccions de Python són:</p>
+    <ul>
+      <li>La <a href="https://ca.wikipedia.org/wiki/Condicional_(programaci%C3%B3)">instrucció</a> <code>if</code>, que executa un bloc de codi si es compleix una condició...</li>
+    </ul>
+
+    <h3 id="expressions">Expressions</h3>
+    <p>Algunes de les expressions de Python són similars a altres llenguatges com Java i C...</p>
+    <ul>
+      <li>Suma, resta i multiplicació són el mateix, però la divisió no...</li>
+    </ul>
+
+    <h3 id="classes">Classes</h3>
+    <p>
+      Python és un llenguatge d'alt nivell que inclou la programació orientada a objectes...
+    </p>
+
+    <h3 id="escriptura">Escriptura</h3>
+    <p>
+      Python utilitza <em>duck typing</em> aplicant aquest concepte a objectes...
+    </p>
+
+    <h2 id="bibliotequesPython">Biblioteques en Python</h2>
+    <h3 id="bibliotecaEstandard">Biblioteca estàndard</h3>
+    <p>
+      El Python té una biblioteca estàndard gran, que tot sovint se cita com una de les principals fortaleses...
+    </p>
+    
+    <h3 id="gestio">Gestió de biblioteques</h3>
+    <p>
+      Tot i que la biblioteca estàndard de Python és un dels punts forts...
+    </p>
+    
+    <h4 id="pip">pip</h4>
+    <p>
+      pip és el gestor <em>de facto</em> de Python...
+    </p>
+
+    <h4 id="conda">conda</h4>
+    <p>
+      Conda és un gestor de paquets i d'entorns multiplataforma de codi obert...
+    </p>
+
+    <h2 id="entorns">Entorns de desenvolupament</h2>
+    <p>
+      La gran majoria de les implementacions de Python...
+    </p>
+
+    <h2 id="implementacions">Implementacions</h2>
+    <h3 id="CPython">CPython</h3>
+    <p>
+      La implementació principal del Python, coneguda com a <em>CPython</em>, està escrita en...
+    </p>
+
+    <h2 id="desenvolupament">Desenvolupament</h2>
+    <p>
+      El desenvolupament de Python es duu a terme en gran manera a través del procés de Proposta de millora...
+    </p>
+
+    <h2 id="nom">Nom</h2>
+    <p>
+      El nom de Python deriva del grup de comèdia britànic <a href="https://ca.wikipedia.org/wiki/Monty_Python">Monty Python</a>...
+    </p>
+
+    <h2 id="generador">Generadors de documentació de l'API</h2>
+    <p>Els generadors de documentació de l'API Python inclouen:</p>
+    <ul>
+      <li>Sphinx</li>
+      <li>Epydoc</li>
+      <li>HeaderDoc</li>
+      <li>Pydoc</li>
+    </ul>
+
+    <h2 id="usos">Usos</h2>
+    <p>
+      Des del 2003, Python s'ha classificat constantment entre els deu primers llenguatges...
+    </p>
+
+    <h2 id="referencies">Referències</h2>
+    <ol>
+      <li id="ref1"><a href="#">↑</a> TIOBE Software Index. «<a href="http://www.tiobe.com/index.php/paperinfo/tpci/Python.html" target="_blank" rel="noopener">TIOBE Software Index Python</a>», 2012.</li>
+      <li id="ref2"><a href="#">↑</a> «<a href="http://radar.oreilly.com/2006/08/programming-language-trends.html" target="_blank" rel="noopener">Programming Language Trends - O'Reilly Radar</a>».</li>
+      <li id="ref3"><a href="#">↑</a> «<a href="http://redmonk.com/sogrady/2013/02/28/language-rankings-1-13/" target="_blank" rel="noopener">The RedMonk Programming Language Rankings: January 2013</a>».</li>
+    </ol>
+
+    <h2 id="vegeu">Vegeu també</h2>
+    <ul>
+      <li><a href="https://ca.wikipedia.org/wiki/IDLE_(Python)">IDLE (Python)</a></li>
+      <li><a href="https://ca.wikipedia.org/wiki/Spyder_(programari)">Spyder (programari)</a></li>
+      <li><a href="https://ca.wikipedia.org/wiki/AsciiDoc">AsciiDoc</a></li>
+    </ul>
+
+    <h2 id="bibliografia">Bibliografia</h2>
+    <ul>
+      <li>Downey, Allen B. <a href="http://www.greenteapress.com/thinkpython/html/index.html" target="_blank" rel="noopener"><em>Think Python: How to Think Like a Computer Scientist</em></a> (en anglès).</li>
+      <li>Hamilton, Naomi. «<a href="http://www.computerworld.com.au/index.php/id;66665771" target="_blank" rel="noopener"><em>The A-Z of Programming Languages: Python</em></a>» (en anglès). <em>Computerworld</em>.</li>
+      <li>Lutz, Mark. <em>Learning Python</em> (en anglès). 4a edició. O'Reilly Media, 2009. <small>ISBN 978-0596158064</small>.</li>
+    </ul>
+
+    <h2 id="enllacos">Enllaços externs</h2>
+    <ul>
+      <li><a href="https://pythoncheatsheet.org/" target="_blank" rel="noopener">Cheatsheet de Python</a> (anglès)</li>
+      <li><a href="https://www.python.org/" target="_blank" rel="noopener">La web de Python</a> (anglès)</li>
+      <li><a href="https://www.python.org/download/other/" target="_blank" rel="noopener">Python en altres plataformes</a> (anglès)</li>
+    </ul>
+  </main>
+
+  <!-- Script JavaScript per a funcionalitats addicionals (interaccions, etc.) -->
+  <script src="js/main.js"></script>
+</body>
+</html>
