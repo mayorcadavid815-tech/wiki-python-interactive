@@ -23,7 +23,7 @@ L'aplicació compta amb una interfície adaptativa (*responsive*) que inclou:
 
 ## 🖼️ Captura de pantalla
 
-![Captura de pantalla del projecte][(https://github.com/mayorcadavid815-tech/viquipedia-python-2.0/blob/main/image.png)](https://github.com/mayorcadavid815-tech/wiki-python-interactive/blob/main/Viquipedia_files/img/captura_wiki.PNG)
+![Captura de pantalla del projecte](https://github.com/mayorcadavid815-tech/wiki-python-interactive/blob/main/Viquipedia_files/img/captura_wiki.PNG)
 
 ---
 
